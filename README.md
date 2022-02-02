@@ -22,7 +22,7 @@
 | ------------------- | --------- | ------------------------------ |
 | category_id         | integer   | null: false                    |
 | situation_id        | integer   | null: false                    |
-| shipping_charges_id | integer   | null: false                    |
+| shipping_charge_id  | integer   | null: false                    |
 | prefecture_id       | integer   | null: false                    |
 | send_day_id         | integer   | null: false                    |
 | price               | integer   | null: false                    |
@@ -54,6 +54,6 @@
 | address        | string    | null: false                    |
 | building       | string    |                                |
 | tel            | string    | null: false                    |
-| purchase_id    | reference | null: false, foreign_key: true |
+| purchase       | reference | null: false, foreign_key: true |
 
 - belongs_to :purchase
