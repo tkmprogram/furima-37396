@@ -2,35 +2,33 @@
 
 ## users テーブル
 
-| Column                | Type    | Options     |
-| --------------------- | ------- | ----------- |
-| Nickname              | string  | null: false |
-| Email                 | string  | null: false |
-| password              | string  | null: false |
-| password_confirmation | string  | null: false |
-| Last_name             | string  | null: false |
-| first_name            | string  | null: false |
-| last_name_katakana    | string  | null: false |
-| first_name_katakana   | string  | null: false |
-| birthday              | integer | null: false |
+| Column                | Type    | Options                  |
+| --------------------- | ------- | ------------------------ |
+| nickname              | string  | null: false              |
+| email                 | string  | null: false, unique: true|
+| encrypted_password    | string  | null: false              |
+| last_name             | string  | null: false              |
+| first_name            | string  | null: false              |
+| last_name_katakana    | string  | null: false              |
+| first_name_katakana   | string  | null: false              |
+| birthday              | date    | null: false              |
 
 - has_many :products
 - has_many :purchases
 
 ## Products テーブル
 
-| Column           | Type      | Options                        |
-| ---------------- | --------- | ------------------------------ |
-| category         | string    | null: false                    |
-| situation        | text      | null: false                    |
-| shipping_charges | string    | null: false                    |
-| area             | string    | null: false                    |
-| send_day         | string    | null: false                    |
-| price            | integer   | null: false                    |
-| title            | string    | null: false                    |
-| explanation      | text      | null: false                    |
-| image            | text      | null: false                    |
-| user             | reference | null: false, foreign_key: true |
+| Column              | Type      | Options                        |
+| ------------------- | --------- | ------------------------------ |
+| category_id         | integer   | null: false                    |
+| situation_id        | integer   | null: false                    |
+| shipping_charges_id | integer   | null: false                    |
+| prefecture_id       | integer   | null: false                    |
+| send_day_id         | integer   | null: false                    |
+| price               | integer   | null: false                    |
+| title               | string    | null: false                    |
+| explanation         | text      | null: false                    |
+| user                | reference | null: false, foreign_key: true |
 
 - belongs_to :user
 - has_one :purchase
@@ -46,15 +44,16 @@
 - belongs_to :product
 - has_one :send
 
-## Send テーブル
+## Sends テーブル
 
-| Column         | Type   | Options     |
-| -------------- | ------ | ----------- |
-| post_code      | string | null: false |
-| prefecture     | string | null: false |
-| municipalities | string | null: false |
-| address        | string | null: false |
-| building       | string |             |
-| tel            | string | null: false |
+| Column         | Type      | Options                        |
+| -------------- | --------- | -----------                    |
+| post_code      | string    | null: false                    |
+| prefecture_id  | integer   | null: false                    |
+| municipalities | string    | null: false                    |
+| address        | string    | null: false                    |
+| building       | string    |                                |
+| tel            | string    | null: false                    |
+| purchase_id    | reference | null: false, foreign_key: true |
 
 - belongs_to :purchase
