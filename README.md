@@ -2,17 +2,17 @@
 
 ## users テーブル
 
-| Column                | Type   | Options     |
-| --------------------- | ------ | ----------- |
-| Nickname              | string | null: false |
-| Email                 | string | null: false |
-| password              | string | null: false |
-| password_confirmation | string | null: false |
-| Last_name             | string | null: false |
-| first_name            | string | null: false |
-| last_name_katakana    | string | null: false |
-| first_name_katakana   | string | null: false |
-| birthday              |
+| Column                | Type    | Options     |
+| --------------------- | ------- | ----------- |
+| Nickname              | string  | null: false |
+| Email                 | string  | null: false |
+| password              | string  | null: false |
+| password_confirmation | string  | null: false |
+| Last_name             | string  | null: false |
+| first_name            | string  | null: false |
+| last_name_katakana    | string  | null: false |
+| first_name_katakana   | string  | null: false |
+| birthday              | integer | null: false |
 
 - has_many :products
 - has_many :purchases
@@ -26,7 +26,7 @@
 | shipping_charges | string    | null: false                    |
 | area             | string    | null: false                    |
 | send_day         | string    | null: false                    |
-| price            | string    | null: false                    |
+| price            | integer   | null: false                    |
 | title            | string    | null: false                    |
 | explanation      | text      | null: false                    |
 | image            | text      | null: false                    |
