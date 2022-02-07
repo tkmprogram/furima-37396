@@ -1,8 +1,8 @@
 class ItemsController < ApplicationRecord
   validates :category_id, numericality: { other_than: 1, message: "can't be blank"}
   validates :situation_id, numericality: { other_than: 1, message: "can't be blank"}
-  validates :shipping_charge_id, presence:true
-  validates :prefecture_id, presence: true
+  validates :shipping_charge_id, numericality: { other_than: 1, message: "can't be blank"}
+  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank"}
   validates :send_day_id, presence: true
   validates :price, presence: true
   validates :title, presence: true
@@ -15,7 +15,9 @@ class ItemsController < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
-
-  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :situation
+  belongs_to :shipping_charge
+  belongs_to :prefecture
+  belongs_to :send_day
+
 end
