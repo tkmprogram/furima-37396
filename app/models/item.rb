@@ -1,9 +1,9 @@
-class ItemsController < ApplicationRecord
+class Item < ApplicationRecord
   validates :category_id, numericality: { other_than: 1, message: "can't be blank"}
   validates :situation_id, numericality: { other_than: 1, message: "can't be blank"}
   validates :shipping_charge_id, numericality: { other_than: 1, message: "can't be blank"}
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank"}
-  validates :send_day_id, presence: true
+  validates :send_day_id, numericality: { other_than: 1, message: "can't be blank"}
   validates :price, presence: true
   validates :title, presence: true
   validates :explanation, presence: true
@@ -19,5 +19,4 @@ class ItemsController < ApplicationRecord
   belongs_to :shipping_charge
   belongs_to :prefecture
   belongs_to :send_day
-
 end
