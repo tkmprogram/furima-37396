@@ -5,7 +5,7 @@ FactoryBot.define do
     shipping_charge_id  {'2'}
     prefecture_id       {'2'}
     send_day_id         {'2'}
-    price               {'100'}
+    price               {'1000'}
     title               {'test'}
     explanation         {'test'}
 
