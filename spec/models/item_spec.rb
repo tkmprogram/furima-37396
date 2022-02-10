@@ -72,6 +72,36 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
+      it 'category_idが1では保存できない' do
+        @item.category_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
+      it 'situation_idが1では保存できない' do
+        @item.situation_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Situation can't be blank")
+      end
+      it 'shipping_charge_idが1では保存できない' do
+        @item.shipping_charge_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping charge can't be blank")
+      end
+      it 'prefecture_idが1では保存できない' do
+        @item.prefecture_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+      end
+      it 'send_day_idが1では保存できない' do
+        @item.send_day_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Send day can't be blank")
+      end
+      it 'userが紐づいていなければ保存できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
+      end
     end
   end
 end
