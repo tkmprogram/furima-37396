@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 def basic_pass(path)
-  username = ENV["BASIC_AUTH_USER"]
-  password = ENV["BASIC_AUTH_PASSWORD"]
+  username = ENV['BASIC_AUTH_USER']
+  password = ENV['BASIC_AUTH_PASSWORD']
   visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
 end
 
-RSpec.describe "ユーザー新規登録", type: :system do
+RSpec.describe 'ユーザー新規登録', type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
@@ -23,10 +23,10 @@ RSpec.describe "ユーザー新規登録", type: :system do
       fill_in 'first-name', with: @user.first_name
       fill_in 'last-name-kana', with: @user.last_name_katakana
       fill_in 'first-name-kana', with: @user.first_name_katakana
-      
-      expect{
+
+      expect  do
         find('input[name=会員登録]').click
-      }.to change { User.count }.by{1}
+      end.to change { User.count }.by { 1 }
       expect(current_path).to eq(root_path)
       expect(page).to have_content('ログアウト')
       expect(page).to have_no_content('新規登録')
