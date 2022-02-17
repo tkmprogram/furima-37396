@@ -1,9 +1,18 @@
 class OrdersController < ApplicationController
-
+  before_action :authenticate_user!, only: :index
   before_action :find_item, only: [:index, :create]
+
+
 
   def index
     @order_send = OrderSend.new
+    if @item.user_id == current_user.id
+      redirect_to root_path
+    end
+
+    if @item.order.present?
+      redirect_to root_path
+    end
   end
 
 
@@ -37,5 +46,7 @@ class OrdersController < ApplicationController
       currency: 'jpy'
     )
   end
+
+
 
 end
