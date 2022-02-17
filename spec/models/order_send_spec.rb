@@ -80,6 +80,16 @@ RSpec.describe OrderSend, type: :model do
         @ordersend.valid?
         expect(@ordersend.errors.full_messages).to include("Token can't be blank")
       end
+      it 'userが紐づいていなければ購入できない' do
+        @ordersend.user_id = nil
+        @ordersend.valid?
+        expect(@ordersend.errors.full_messages).to include("User can't be blank")
+      end
+      it 'itemが紐づいていなければ購入できない' do
+        @ordersend.item_id = nil
+        @ordersend.valid?
+        expect(@ordersend.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end
