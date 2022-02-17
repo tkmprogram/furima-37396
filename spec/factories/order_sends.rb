@@ -7,6 +7,8 @@ FactoryBot.define do
     prefecture_id  { '2' }
     building  { 'マンション101号室' }
 
+    token  {"tok_abcdefghijk00000000000000000"}
+
     association :user
     association :item
   end

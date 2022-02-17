@@ -75,6 +75,11 @@ RSpec.describe OrderSend, type: :model do
         @ordersend.valid?
         expect(@ordersend.errors.full_messages).to include("Prefecture can't be blank")
       end
+      it 'tokenが空だと購入できない' do
+        @ordersend.token = nil
+        @ordersend.valid?
+        expect(@ordersend.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
