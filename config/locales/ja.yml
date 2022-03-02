@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        last_name: 苗字
+        first_name: 名前
+        last_name_katakana: 苗字カナ
+        first_name_katakana: 名前カナ
+        birthday: 誕生日
+      item:
+        title: タイトル
+        image: 画像
+        price: 価格
+        explanation: 説明
